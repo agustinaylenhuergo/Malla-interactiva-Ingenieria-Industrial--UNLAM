@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #4B0082; /* Violeta oscuro */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.year-section {
+    margin-bottom: 40px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.semester-section {
+    margin-bottom: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.course {
+    background-color: #ADFF2F; /* Verde claro inicial (no aprobado y bloqueado) */
+    color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 2px solid #8B4513; /* Borde marrón para diferenciar */
+}
+
+.course:hover {
+    transform: translateY(-3px);
+}
+
+.course.approved {
+    background-color: #8A2BE2; /* Violeta cuando está aprobado */
+    color: #fff;
+    border-color: #4B0082;
+    cursor: default;
+}
+
+.course.disabled {
+    background-color: #D3D3D3; /* Gris para materias bloqueadas */
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Tooltip styles */
+.course .tooltip {
+    visibility: hidden;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the course box */
+    left: 50%;
+    margin-left: -100px; /* Center the tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.course .tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+}
+
+.course:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.info-section {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.info-section p {
+    font-size: 1.1em;
+    text-align: center;
+}
